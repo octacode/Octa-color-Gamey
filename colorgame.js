@@ -17,7 +17,8 @@ for(i=0;i<squares.length;i++){
 
 	squares[i].addEventListener('click', function(){
 		var ans = this.style.background;
-		if(ans == ques.textContent.toLowerCase()){
+		ans = ans.replace(" none repeat scroll 0% 0%","");
+		if(ans == ques.textContent){
 			message.textContent = "Correct";
 			h1.style.background = ans;
 			button.textContent = "Play Again?"

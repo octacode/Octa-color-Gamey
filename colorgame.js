@@ -6,8 +6,8 @@ var button = document.getElementById('new_colors');
 
 var easyBtn = document.getElementById('easyBtn');
 var hardBtn = document.getElementById('hardBtn');
-var colors = generateRandomColors(getSelectedMode());
-
+var colors = generateRandomColors(6);
+var numOfSquares = 6;
 
 ques.textContent = colors[pickColor()];
 
@@ -17,7 +17,7 @@ for(i=0;i<squares.length;i++){
 
 	squares[i].addEventListener('click', function(){
 		var ans = this.style.background;
-		if(ans == ques.textContent){
+		if(ans == ques.textContent.toLowerCase()){
 			message.textContent = "Correct";
 			h1.style.background = ans;
 			button.textContent = "Play Again?"
@@ -32,12 +32,42 @@ for(i=0;i<squares.length;i++){
 	});
 }
 
+easyBtn.addEventListener('click', function(){
+	clearInstance();
+	hardBtn.classList.remove("selected");
+	easyBtn.classList.add("selected");
+	numOfSquares = 3;
+	colors = generateRandomColors(3);
+	pickedColor = colors[pickColor()];
+	ques.textContent = pickedColor;
+	
+	for(i=0;i<squares.length;i++){
+		if(colors[i])
+			squares[i].style.background = colors[i];
+		else
+			squares[i].style.display = "none";
+	}
+
+});
+
+hardBtn.addEventListener('click', function(){
+	clearInstance();
+	easyBtn.classList.remove("selected");
+	hardBtn.classList.add("selected");
+	numOfSquares = 6;
+	colors = generateRandomColors(6);
+	pickedColor = colors[pickColor()];
+	ques.textContent = pickedColor;
+
+	for(i=0;i<squares.length;i++){
+		squares[i].style.display = 'block';
+		squares[i].style.background = colors[i];
+	}
+})
+
 button.addEventListener('click', function(){
-	if(button.textContent = "Play Again")
-		button.textContent = "New Colors";
-	h1.style.background="#232323"
-	message.textContent = ""
-	colors = generateRandomColors(getSelectedMode());
+	clearInstance();
+	colors = generateRandomColors(numOfSquares);
 	pickedColor = colors[pickColor()];
 	correctAns = ques.textContent;
 	ques.textContent = pickedColor;
@@ -45,6 +75,13 @@ button.addEventListener('click', function(){
 		squares[i].style.background = colors[i];
 	}
 })
+
+function clearInstance(){
+	if(button.textContent = "Play Again")
+		button.textContent = "New Colors";
+	h1.style.background="steelblue"
+	message.textContent = ""
+}
 
 function pickColor(){
 	return Math.floor(Math.random() * colors.length);
@@ -65,11 +102,4 @@ function randomColor(){
 	var green = Math.floor(Math.random()*256);
 	//rgb(100, 200, 25);
 	return "rgb("+red+", "+blue+", "+green+")";
-}
-
-function getSelectedMode(){
-	if(hardBtn.style.background == 'blue')
-		return 6;
-	else
-		return 3;
 }

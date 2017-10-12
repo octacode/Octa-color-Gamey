@@ -2,7 +2,6 @@ body{
 	margin: 0px;
 	background: #232323;
 	font-family: "Arial";
-
 }
 
 .square{
@@ -40,7 +39,7 @@ h1{
 
 #stripe{
 	background: white;
-	height: : 30px;
+	height: 30px;
 	text-align: center;
 }
 

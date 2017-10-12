@@ -14,9 +14,9 @@ Clone the repository with `git clone` https://github.com/octacode/Octa-color-Gam
 
 Navigate to the directory with `cd Octa-Color-Gamey`
 
-Run the program in your preferred browser with `open colorgame.html`
-OR
-Run using `php index.php`.
+> Run the program in your preferred browser with `open colorgame.html`
+#### OR
+> Run using `php index.php`.
 ### NOTE: To run using `PHP`, `PHP` needs to be installed on your system. Head over to [http://php.net/downloads.php](http://php.net/downloads.php) to check how to install it on your system.
 
 ## Built With

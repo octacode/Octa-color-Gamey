@@ -2,7 +2,7 @@
 
 Octa-Color-Gamey is a webpage that challengers the user to guess which color is equivalent to the RGB provided code.
 
-#Visit the webpage at https://colorgame-site.herokuapp.com/
+# Visit the webpage at https://colorgame-site.herokuapp.com/
 
 ![screenshot](img/screenshot.png "Screenshot of Page")
 

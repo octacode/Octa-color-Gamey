@@ -1,10 +1,13 @@
-var squares = document.getElementsByClassName("square");
-var ques = document.getElementById('question');
-var message = document.getElementById('message');
-var h1 = document.querySelector('h1');
-var button = document.getElementById('new_colors');
-var easyBtn = document.getElementById('easyBtn');
-var hardBtn = document.getElementById('hardBtn');
+var squares = document.getElementsByClassName('square-item');
+var ques = document.querySelector('.question');
+var message = document.querySelector('.message');
+var header = document.querySelector('header');
+
+// buttons
+var newGameButton = document.querySelector('button[name="newColors"]');
+var levelEasyButton = document.querySelector('button[name="levelEasy"]');
+var levelHardButton = document.querySelector('button[name="levelHard"]');
+
 var colors = generateRandomColors(6);
 var numOfSquares = 6;
 
@@ -16,25 +19,25 @@ for (var i = 0; i < squares.length; i++) {
 
 	squares[i].addEventListener('click', function() {
 		var ans = this.style.background;
-		ans = ans.replace(" none repeat scroll 0% 0%", "");
+		ans = ans.replace(' none repeat scroll 0% 0%', '');
 		if (ans == ques.textContent) {
-			message.textContent = "Correct";
-			h1.style.background = ans;
-			button.textContent = "Play Again?";
+			message.textContent = 'Correct';
+			header.style.background = ans;
+			newGameButton.textContent = 'Play Again?';
 			for (var k = 0; k < squares.length; k++) {
 				squares[k].style.background = this.style.background;
 			}
 		} else {
-			message.textContent = "Wrong Answer";
-			this.style.background = "#232323";
+			message.textContent = 'Wrong Answer';
+			this.style.background = '#232323';
 		}
 	});
 }
 
-easyBtn.addEventListener('click', function() {
+levelEasyButton.addEventListener('click', function() {
 	clearInstance();
-	hardBtn.classList.remove("selected");
-	easyBtn.classList.add("selected");
+	levelHardButton.classList.remove('selected');
+	levelEasyButton.classList.add('selected');
 	numOfSquares = 3;
 	colors = generateRandomColors(3);
 	var pickedColor = colors[pickColor()];
@@ -44,14 +47,14 @@ easyBtn.addEventListener('click', function() {
 		if (colors[i])
 			squares[i].style.background = colors[i];
 		else
-			squares[i].style.display = "none";
+			squares[i].style.display = 'none';
 	}
 });
 
-hardBtn.addEventListener('click', function() {
+levelHardButton.addEventListener('click', function() {
 	clearInstance();
-	easyBtn.classList.remove("selected");
-	hardBtn.classList.add("selected");
+	levelEasyButton.classList.remove('selected');
+	levelHardButton.classList.add('selected');
 	numOfSquares = 6;
 	colors = generateRandomColors(6);
 	var pickedColor = colors[pickColor()];
@@ -63,7 +66,7 @@ hardBtn.addEventListener('click', function() {
 	}
 })
 
-button.addEventListener('click', function() {
+newGameButton.addEventListener('click', function() {
 	clearInstance();
 	colors = generateRandomColors(numOfSquares);
 	var pickedColor = colors[pickColor()];
@@ -77,10 +80,10 @@ button.addEventListener('click', function() {
 // methods
 
 function clearInstance() {
-	if (button.textContent = "Play Again")
-		button.textContent = "New Colors";
-	h1.style.background = "steelblue";
-	message.textContent = "";
+	if (newGameButton.textContent = 'Play Again')
+		newGameButton.textContent = 'New Colors';
+	header.style.background = 'steelblue';
+	message.textContent = '';
 }
 
 function pickColor() {
@@ -100,5 +103,5 @@ function randomColor() {
 	var blue = Math.floor(Math.random() * 256);
 	var green = Math.floor(Math.random() * 256);
 	//rgb(100, 200, 25);
-	return "rgb(" + red + ", " + blue + ", " + green + ")";
+	return 'rgb(' + red + ', ' + blue + ', ' + green + ')';
 }

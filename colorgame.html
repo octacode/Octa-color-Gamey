@@ -7,21 +7,32 @@
 	<title>Octa color Gamey</title>
 </head>
 <body>
-	<h1>The great<br>
-	<span id="question"></span><br>
-	guessing game</h1>
-	<div id="stripe">
-		<button id="new_colors">New colors</button> <span id="message"></span> <button id="easyBtn">Easy</button> <button class="selected" id="hardBtn">Hard</button>
+	<header>
+		<div class="title">
+			<h1>The great <span class="question">rgba(100,100,100,2)</span> guessing game</h1>
+		</div>
+	
+		<div class="stripe">
+			<div class="game">
+				<button name="newColors">New colors</button>
+
+				<span class="message"></span>
+			</div>
+
+			<div class="level">
+				<button name="levelEasy">Easy</button>
+				<button class="selected" name="levelHard">Hard</button>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="square-item"></div>
+		<div class="square-item"></div>
+		<div class="square-item"></div>
+		<div class="square-item"></div>
+		<div class="square-item"></div>
+		<div class="square-item"></div>
 	</div>
-	<div id="container">
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-	</div>
-	<script src="colorgame.js" type="text/javascript">
-	</script>
+	<script src="colorgame.js" type="text/javascript"></script>
 </body>
 </html>

@@ -33,7 +33,7 @@ for (var i = 0; i < squares.length; i++) {
 		}
 	});
 }
-
+//for easy level
 levelEasyButton.addEventListener('click', function() {
 	clearInstance();
 	levelHardButton.classList.remove('selected');
@@ -50,7 +50,7 @@ levelEasyButton.addEventListener('click', function() {
 			squares[i].style.display = 'none';
 	}
 });
-
+//for hard level
 levelHardButton.addEventListener('click', function() {
 	clearInstance();
 	levelEasyButton.classList.remove('selected');
@@ -65,7 +65,7 @@ levelHardButton.addEventListener('click', function() {
 		squares[i].style.background = colors[i];
 	}
 })
-
+//for new game
 newGameButton.addEventListener('click', function() {
 	clearInstance();
 	colors = generateRandomColors(numOfSquares);
